@@ -59,18 +59,18 @@ $deleteLabel = $deleteTitle;
 //Show/Hide preview and delete Buttons
 if ($EnablePreview == yes) {
 $PreviewHeading = '
-		<th class="sorting_asc_disabled">'.$previewTitle.'</th>
+		<th class="sorting_asc_disabled"> '.$previewTitle.'</th>
 		';
 $PreviewButton = '
-		<td class="bg-info" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$previewTitle.' [+title+]" class="btn btn-sm btn-info" href="../index.php?id=[+id+]" target="_blank" title="'.$previewTitle.'"><i class="fa fa-eye"></i>'.$previewLabel.'</a></td>
+		<td class="bg-info" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$previewTitle.' [+title+]" class="btn btn-sm btn-info" href="../index.php?id=[+id+]" target="_blank" title="'.$previewTitle.'"><i class="fa fa-eye"></i> '.$previewLabel.'</a></td>
 		';
 }
 if ($EnableDelete == yes) {
 $DeleteHeading = '
-		<th class="sorting_asc_disabled">'.$deleteTitle.'</th>
+		<th class="sorting_asc_disabled"> '.$deleteTitle.'</th>
 		';
 $DeleteButton = '
-		<td class="bg-danger" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$deleteTitle.' [+title+]" class="btn btn-sm btn-danger" href="index.php?a=6&id=[+id+]" title="'.$deleteTitle.'"><i class="fa fa-trash-o"></i>'.$deleteLabel.'</a></td>
+		<td class="bg-danger" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$deleteTitle.' [+title+]" class="btn btn-sm btn-danger" href="index.php?a=6&id=[+id+]" title="'.$deleteTitle.'"><i class="fa fa-trash-o"></i> '.$deleteLabel.'</a></td>
 		';
 }
 //Show/Hide thumbnails
@@ -179,7 +179,7 @@ background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffff
           '.$ThumbnailHeading.'
           '.$thheading.'
           '.$PreviewHeading.'
-          <th class="sorting_asc_disabled">'.$editTitle.'</th>
+          <th class="sorting_asc_disabled"> '.$editTitle.'</th>
           '.$DeleteHeading.'
             </thead>
         <tbody>
