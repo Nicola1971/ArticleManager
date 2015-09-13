@@ -1,19 +1,19 @@
 /**
  * Article Manager
  *
- * Article Manager Beta 2.1 - Manage Blog Posts and more
+ * Article Manager Beta 2.1.1 - Manage Blog Posts and more
  *
  * @category	module
- * @version     Beta 2.1
+ * @version     Beta 2.1.1
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal	@modx_category Manager
- * @internal    @properties &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
+ * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 /******
-Article Manager beta 2.1
+Article Manager beta 2.1.1
 
-&ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
+&ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
 
 
 ****
@@ -55,7 +55,7 @@ $deleteLabel = $deleteTitle;
 //Show/Hide preview and delete Buttons
 if ($EnablePreview == yes) {
 $PreviewHeading = '<th class="sorting_asc_disabled">'.$previewTitle.'</th>';
-$PreviewButton = '<td class="bg-info" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$previewTitle.' [+title+]" class="btn btn-sm btn-info" href="[(site_url)]index.php?id=[+id+]" target="_blank" title="'.$previewTitle.'"><i class="fa fa-eye"></i> '.$previewLabel.'</a></td>';
+$PreviewButton = '<td class="bg-info" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$previewTitle.' [+title+]" class="btn btn-sm btn-info" href="../index.php?id=[+id+]" target="_blank" title="'.$previewTitle.'"><i class="fa fa-eye"></i> '.$previewLabel.'</a></td>';
 }
 if ($EnableDelete == yes) {
 $DeleteHeading = '<th class="sorting_asc_disabled">'.$deleteTitle.'</th>';
@@ -79,7 +79,8 @@ $rowTpl = '@CODE: <tr>
 // Ditto Snippet parameters
 $params['parents'] = $parentId;
 $params['depth'] = $dittolevel;
-$params['sortBy'] = 'menuindex ASC';
+$params['sortBy'] = 'createdon';
+$params['sortDir'] = 'DESC';
 $params['tpl'] = $rowTpl;
 $params['total'] = $dittototal;
 if ($ListBoxFilter == yes) {
@@ -92,7 +93,7 @@ if ($hideFolders == no) {
 $params['hideFolders'] = '0';
 }
 // run Ditto Snippet
-$Articlelist = $modx->runSnippet('Ditto', $params);
+$Articlelist = $modx->runSnippet(''.$ListSnippet.'', $params);
 
 
 //Module Layout
