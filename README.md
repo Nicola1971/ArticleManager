@@ -11,7 +11,7 @@ http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 
 ### Beta 2
 * cleaned and rewritten code
-* now you can set variables inside model configuration
+* now you can set template variables and table Headings in the module configuration tab
 
 ### Beta 1
 * first release
