@@ -4,7 +4,7 @@ Posts Admin Module For MODX Evo
 http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 
 ##To do
-* Thumbnails for image tvs
+* Thumbnails (phpthumb?) for image tvs
 * Bulk actions (any help?)
 
 ##Updates
