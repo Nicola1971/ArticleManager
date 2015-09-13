@@ -30,12 +30,16 @@ $DeleteButton = isset($DeleteButton) ? $DeleteButton : '';
 //get Tv vars fields from Module configuration (ie: [+pagetitle+],[+description+],[+date+]) 
 $arr = explode(",","$tablefields");
 foreach ($arr as $val){
-    $tdfields .=  "<td>" . $val . "</td>";
+    $tdfields .=  "
+    <td>" . $val . "</td>
+    ";
 }
 //get Tv vars Heading Titles from Module configuration (ie: Page Title,Description,Date)
 $tharr = explode(",","$tableheading");
 foreach ($tharr as $thval){
-    $thheading .=  "<th>" . $thval . "</th>";
+    $thheading .=  "
+    <th>" . $thval . "</th>
+    ";
 }
 
 /*Enable/Disable open Popup for Edit Button*/
@@ -54,27 +58,40 @@ $deleteLabel = $deleteTitle;
 }
 //Show/Hide preview and delete Buttons
 if ($EnablePreview == yes) {
-$PreviewHeading = '<th class="sorting_asc_disabled">'.$previewTitle.'</th>';
-$PreviewButton = '<td class="bg-info" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$previewTitle.' [+title+]" class="btn btn-sm btn-info" href="../index.php?id=[+id+]" target="_blank" title="'.$previewTitle.'"><i class="fa fa-eye"></i> '.$previewLabel.'</a></td>';
+$PreviewHeading = '
+		<th class="sorting_asc_disabled">'.$previewTitle.'</th>
+		';
+$PreviewButton = '
+		<td class="bg-info" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$previewTitle.' [+title+]" class="btn btn-sm btn-info" href="../index.php?id=[+id+]" target="_blank" title="'.$previewTitle.'"><i class="fa fa-eye"></i>'.$previewLabel.'</a></td>
+		';
 }
 if ($EnableDelete == yes) {
-$DeleteHeading = '<th class="sorting_asc_disabled">'.$deleteTitle.'</th>';
-$DeleteButton = '<td class="bg-danger" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$deleteTitle.' [+title+]" class="btn btn-sm btn-danger" href="index.php?a=6&id=[+id+]" title="'.$deleteTitle.'"><i class="fa fa-trash-o"></i> '.$deleteLabel.'</a></td>';
+$DeleteHeading = '
+		<th class="sorting_asc_disabled">'.$deleteTitle.'</th>
+		';
+$DeleteButton = '
+		<td class="bg-danger" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$deleteTitle.' [+title+]" class="btn btn-sm btn-danger" href="index.php?a=6&id=[+id+]" title="'.$deleteTitle.'"><i class="fa fa-trash-o"></i>'.$deleteLabel.'</a></td>
+		';
 }
 //Show/Hide thumbnails
 if ($EnableImage == yes) {
-	$tdThumbnail = '<td><img class="img-responsive img-thumbnail" src="../'.$imageTV.'" height="80" width="140" alt="[+title+]"></td>';
-$ThumbnailHeading = '<th class="sorting_asc_disabled">'.$ThumbnailTitle.'</th>';
+	$tdThumbnail = '
+		<td><img class="img-responsive img-thumbnail" src="../'.$imageTV.'" height="80" width="140" alt="[+title+]"></td>
+		';
+$ThumbnailHeading = '
+		<th class="sorting_asc_disabled">'.$ThumbnailTitle.'</th>
+		';
 }
-// Ditto Tpl - Row <tr> with template variable fields inside <td>
-$rowTpl = '@CODE: <tr>
-<td class="bg-warning" width="5%">[+id+]</td>
-'.$tdThumbnail.'
-'.$tdfields.'
-'.$PreviewButton.'
-<td class="bg-success" width="5%">'.$EditLink.' '.$editLabel.'</a></td>
-'.$DeleteButton.'
-</tr>';
+// Ditto Tpl - Row with template variable fields inside
+  $rowTpl = '@CODE:
+        <tr>
+  <td class="bg-warning" width="5%">[+id+]</td>
+  '.$tdThumbnail.'
+  '.$tdfields.'
+  '.$PreviewButton.'
+  <td class="bg-success" width="5%">'.$EditLink.' '.$editLabel.'</a></td>
+  '.$DeleteButton.'</tr>
+		  ';
 
 // Ditto Snippet parameters
 $params['parents'] = $parentId;
@@ -98,9 +115,9 @@ $Articlelist = $modx->runSnippet(''.$ListSnippet.'', $params);
 
 //Module Layout
 $Module = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-    <head>
-	<link href="../assets/modules/ArticleManager/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link href="../assets/modules/ArticleManager/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/modules/ArticleManager/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="../assets/modules/ArticleManager/js/table/jquery.dataTables.min.css" rel="stylesheet">
 <link href="../assets/modules/ArticleManager/js/table/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -112,9 +129,9 @@ $(document).ready(function(){
     $(".sortable").dataTable();
 });
 </script>
-	</head>
-	<body>
-	<style>
+</head>
+<body>
+<style>
 	body {background: #eeeeee;}
 	.sortable {background: #ffffff; margin-top:15px;}
 	.main-wrapper {margin-top:15px; background: #ffffff; padding:15px; border:1px solid #dedede; border-radius:8px;}
@@ -147,29 +164,44 @@ thead {background: #ffffff;
 background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);}
 
 	</style>
-	 <div class="container-fluid">
-                <div class="tabbable"><div class="main-wrapper">
-           <div><h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.'</h3></div><hr>
-<div class="widget-stage overflowscroll"><table class="sortable table table-hover table-bordered table-condensed table-striped table-responsive">
-   <thead>
-   <th data-defaultsort="desc">Id</th>
-'.$ThumbnailHeading.'
-'.$thheading.'
-'.$PreviewHeading.'    
-<th class="sorting_asc_disabled">'.$editTitle.'</th>
-'.$DeleteHeading.'
+<div class="container-fluid">
+  <div class="tabbable">
+    <div class="main-wrapper">
+      <div>
+        <h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.'</h3>
+      </div>
+      <hr>
+    <div class="widget-stage overflowscroll">
+      <table class="sortable table table-hover table-bordered table-condensed table-striped table-responsive">
+        <thead>
+        
+          <th data-defaultsort="desc">Id</th>
+          '.$ThumbnailHeading.'
+          '.$thheading.'
+          '.$PreviewHeading.'
+          <th class="sorting_asc_disabled">'.$editTitle.'</th>
+          '.$DeleteHeading.'
             </thead>
-            <tbody>'.$Articlelist.'</tbody>
-			</table><br style="clear:both;height:1px;margin-top: -1px;line-height:1px;font-size:1px;" /> </div></div></div>
-				</div>
-				</div>
-				<script>
+        <tbody>
+        '.$Articlelist.'
+          </tbody>
+        
+      </table>
+      <br style="clear:both;height:1px;margin-top: -1px;line-height:1px;font-size:1px;" />
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
 $(function () {
   $(\'[data-toggle="tooltip"]\').tooltip()
 })
 </script>
 </body>
-				</html>';            
+</html>
+
+';            
 	//end Module Layout
 
 //the Final Output
