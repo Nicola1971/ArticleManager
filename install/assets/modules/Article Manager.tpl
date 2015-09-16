@@ -132,7 +132,7 @@ $(document).ready(function(){
 </head>
 <body>
 <style>
-	body {background: #eeeeee;}
+	body {background: #eeeeee; font-size:12px;}
 	.sortable {background: #ffffff; margin-top:15px;}
 	.main-wrapper {margin-top:15px; background: #ffffff; padding:15px; border:1px solid #dedede; border-radius:8px;}
 	input {border-radius: 3px; 
