@@ -1,4 +1,4 @@
-# ArticleManager Beta 2.1
+# ArticleManager Beta 2.2
 Posts Admin Module For MODX Evo
 
 http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
@@ -9,6 +9,9 @@ http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 * Tv support for for DocLister (tvlist parameter)
 
 ##Updates
+
+### Beta 2.2
+* Added export to CVS and export to PDF buttons
 
 ### Beta 2.1.1
 * New config parameter: **List Snippet** : Choose the main list snippet: Ditto, List (Clipper cms), DocLister
