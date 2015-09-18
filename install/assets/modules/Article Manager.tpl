@@ -1,17 +1,17 @@
 /**
  * Article Manager
  *
- * Article Manager Beta 2.1.1 - Manage Blog Posts and more
+ * Article Manager Beta 2.2 - Manage Blog Posts and more
  *
  * @category	module
- * @version     Beta 2.1.1
+ * @version     Beta 2.2
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal	@modx_category Manager
  * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 /******
-Article Manager beta 2.1.1
+Article Manager beta 2.2
 
 &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
 
@@ -59,7 +59,7 @@ $deleteLabel = $deleteTitle;
 //Show/Hide preview and delete Buttons
 if ($EnablePreview == yes) {
 $PreviewHeading = '
-		<th class="sorting_asc_disabled"> '.$previewTitle.'</th>
+		<th class="sorting_asc_disabled">'.$previewTitle.'</th>
 		';
 $PreviewButton = '
 		<td class="bg-info" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$previewTitle.' [+title+]" class="btn btn-sm btn-info" href="../index.php?id=[+id+]" target="_blank" title="'.$previewTitle.'"><i class="fa fa-eye"></i> '.$previewLabel.'</a></td>
@@ -89,7 +89,7 @@ $ThumbnailHeading = '
   '.$tdThumbnail.'
   '.$tdfields.'
   '.$PreviewButton.'
-  <td class="bg-success" width="5%">'.$EditLink.' '.$editLabel.'</a></td>
+  <td class="bg-success" width="5%">'.$EditLink.'  '.$editLabel.'</a></td>
   '.$DeleteButton.'</tr>
 		  ';
 
@@ -117,17 +117,40 @@ $Articlelist = $modx->runSnippet(''.$ListSnippet.'', $params);
 $Module = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../assets/modules/ArticleManager/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/modules/ArticleManager/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="../assets/modules/ArticleManager/js/table/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../assets/modules/ArticleManager/js/TableTools/css/dataTables.tableTools.min.css" rel="stylesheet">
 <link href="../assets/modules/ArticleManager/js/table/dataTables.bootstrap.min.css" rel="stylesheet">
 <script src="../assets/modules/ArticleManager/js/jquery.min.js"></script>
 <script src="../assets/modules/ArticleManager/bootstrap/js/bootstrap.min.js"></script>
 <script src="../assets/modules/ArticleManager/js/table/jquery.dataTables.min.js"></script>
+<script src="../assets/modules/ArticleManager/js/TableTools/js/dataTables.tableTools.js"></script>
+
 <script>
 $(document).ready(function(){
-    $(".sortable").dataTable();
-});
+    $(".sortable").DataTable({
+     dom: \'T<"clear">plfrtip\',
+        tableTools: {
+				    "sSwfPath": "../assets/modules/ArticleManager/js/TableTools/swf/copy_csv_xls_pdf.swf",
+            "aButtons": [
+   
+                {
+                    "sExtends": "csv",
+					"sTitle": "'.$ArticleModuleTitle.'-cvs-export",
+                    "sButtonText": "CSV"
+                },
+       
+	            {
+                    "sExtends": "pdf",
+					"sTitle": "'.$ArticleModuleTitle.'-pdf-export",
+                    "sPdfOrientation": "portrait"
+                }
+            ]
+        }
+    } );
+} );
 </script>
 </head>
 <body>
@@ -179,7 +202,7 @@ background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffff
           '.$ThumbnailHeading.'
           '.$thheading.'
           '.$PreviewHeading.'
-          <th class="sorting_asc_disabled"> '.$editTitle.'</th>
+          <th class="sorting_asc_disabled">'.$editTitle.'</th>
           '.$DeleteHeading.'
             </thead>
         <tbody>
