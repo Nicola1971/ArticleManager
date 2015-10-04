@@ -1,17 +1,17 @@
 /**
  * Article Manager
  *
- * Article Manager Beta 2.3 - Manage Blog Posts and more
+ * Article Manager Beta 2.3.1 - Manage Blog Posts and more
  *
  * @category	module
- * @version     Beta 2.3
+ * @version     Beta 2.3.1
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal	@modx_category Manager
  * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 /******
-Article Manager beta 2.3
+Article Manager beta 2.3.1
 
 &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image
 
@@ -29,12 +29,11 @@ $DeleteButton = isset($DeleteButton) ? $DeleteButton : '';
 
 $parentarr = explode(",","$ParentFolder");
 foreach ($parentarr as $parentval){
-    $parentbtns .=  "
-     <li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=4&pid=" . $parentval . "' title='".$CreateResourceHereTitle."'><i class='fa fa-file-text-o'></i> " .$NewResourceTitle. " " .$parentname."</a></li>
-    ";
-//get parents title from Module configuration
 $parenttitle = $modx->getDocument($parentval);
 $parentname = $parenttitle['pagetitle'];
+$parentbtns .=  " 
+<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=4&pid=" . $parentval . "' title='".$CreateResourceHereTitle."'><i class='fa fa-file-text-o'></i> " .$NewResourceTitle. " " .$parentname."</a></li>";
+
 }
 
 //get Tv vars fields from Module configuration (ie: [+pagetitle+],[+description+],[+date+])
@@ -71,14 +70,13 @@ $CreateResourceHereLabel = $CreateResourceHereTitle;
 //Show/Hide New Resource Button
 if ($EnableNewResource == yes) {
 $NewResource = '
-  <div class="btn-group" style="float:right">
+  <div class="btn-group navbar-right">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
    <i class="fa fa-file-text-o"></i> '.$CreateResourceHereTitle.' <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu">
 '.$parentbtns.'
     </ul>
-  </div>
-';
+  </div>';
 }
 
 
@@ -217,7 +215,7 @@ background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffff
 <div class="container-fluid">
   <div class="tabbable">
     <div class="main-wrapper">
-      <div>
+      <div class="container-fluid">
         <h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.'  '.$NewResource.' </h3>
       </div>
       <hr>
