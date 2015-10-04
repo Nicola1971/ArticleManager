@@ -1,4 +1,4 @@
-# ArticleManager Beta 2.2
+# ArticleManager Beta 2.3.1
 Posts Admin Module For MODX Evo
 
 http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
@@ -9,6 +9,9 @@ http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 * Tv support for for DocLister (tvlist parameter)
 
 ##Updates
+
+### Beta 2.3
+* Added Create Resource button
 
 ### Beta 2.2
 * Added export to CVS and export to PDF buttons
