@@ -8,7 +8,7 @@ http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 ##To do
 * Thumbnails (phpthumb?) for image tvs
 * Bulk actions (any help?)
-* Tv support for for DocLister (tvlist parameter)
+
 
 ##Updates
 
