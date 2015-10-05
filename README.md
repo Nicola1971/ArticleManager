@@ -1,4 +1,4 @@
-# ArticleManager Beta 2.3.1
+# ArticleManager Beta 2.4
 Posts Admin Module For MODX Evo
 
 http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
