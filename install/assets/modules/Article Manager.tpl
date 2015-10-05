@@ -1,20 +1,19 @@
 /**
  * Article Manager
  *
- * Article Manager Beta 2.3.1 - Manage Blog Posts and more
+ * Article Manager Beta 2.4 - Manage Blog Posts and more
  *
  * @category	module
- * @version     Beta 2.3.1
+ * @version     Beta 2.4
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal	@modx_category Manager
- * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image 
+ * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 /******
-Article Manager beta 2.3.1
+Article Manager beta 2.4
 
-&ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image
-
+&ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
 
 ****
 */
@@ -26,13 +25,17 @@ $parentId = $ParentFolder;
 $dittototal = $ListItems;
 $EditButton = isset($EditButton) ? $EditButton : '';
 $DeleteButton = isset($DeleteButton) ? $DeleteButton : '';
+$ImagePath = isset($ImagePath) ? $ImagePath : $imageTV;
+
 
 $parentarr = explode(",","$ParentFolder");
 foreach ($parentarr as $parentval){
 $parenttitle = $modx->getDocument($parentval);
 $parentname = $parenttitle['pagetitle'];
 $parentbtns .=  " 
-<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=4&pid=" . $parentval . "' title='".$CreateResourceHereTitle."'><i class='fa fa-file-text-o'></i> " .$NewResourceTitle. " " .$parentname."</a></li>";
+<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=4&pid=" . $parentval . "' title='".$CreateResourceHereTitle."'><i class='fa fa-file-text-o'></i> " .$NewResourceTitle. " + " .$parentname." </a></li>";
+$parentlinkbtns .=  " 
+<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=72&pid=" . $parentval . "' title='".$CreateLinkHereTitle."'><i class='fa fa-link'></i> " .$NewResourceTitle. " + " .$parentname." </a></li>";
 
 }
 
@@ -43,6 +46,7 @@ foreach ($arr as $val){
     <td>" . $val . "</td>
     ";
 }
+
 //get Tv vars Heading Titles from Module configuration (ie: Page Title,Description,Date)
 $tharr = explode(",","$tableheading");
 foreach ($tharr as $thval){
@@ -67,18 +71,49 @@ $deleteLabel = $deleteTitle;
 $NewResourceLabel = $NewResourceTitle;
 $CreateResourceHereLabel = $CreateResourceHereTitle;
 }
-//Show/Hide New Resource Button
+//Module Navbar***********
+
+if ($EnableCreateLinks == yes) {
+$CreateLinksNav = '
+<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-link"></i> '.$CreateLinkHereTitle.' <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+'.$parentlinkbtns.'
+    </ul>
+</li>';
+}
+
 if ($EnableNewResource == yes) {
-$NewResource = '
-  <div class="btn-group navbar-right">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-   <i class="fa fa-file-text-o"></i> '.$CreateResourceHereTitle.' <span class="caret"></span></button>
+$CreateResourceNav = '<li class="dropdown" data-toggle="dropdown">
+	 <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-folder-open"></i> '.$CreateResourceHereTitle.' <span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
 '.$parentbtns.'
     </ul>
-  </div>';
+</li>';
 }
 
+$Navbar = '
+ <nav role="navigation" class="navbar navbar-default navbar-module navbar-right">
+<div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+<div id="navbarCollapse" class="collapse navbar-collapse">		
+   <ul class="nav navbar-nav ">
+   <li><a class="text-muted" href="#" onclick="window.location.reload(true);"><i class="fa fa-refresh"></i></a></li>
+'.$CreateResourceNav.'    
+'.$CreateLinksNav.'
+	<li><a href="media/browser/mcpuk/browse.php?&type=images"><i class="fa fa-picture-o"></i> ' .$ImageGalleryTitle. ' </a></li>
+	<li><a href="media/browser/mcpuk/browse.php?&type=files"><i class="fa fa-file-pdf-o"></i> ' .$FilesGalleryTitle. '</a><li>
+	 </ul>
+	 </div>
+	 </nav>
+';
 
 //Show/Hide preview and delete Buttons
 if ($EnablePreview == yes) {
@@ -97,10 +132,33 @@ $DeleteButton = '
           <td class="bg-danger" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$deleteTitle.' [+title+]" class="btn btn-sm btn-danger" href="index.php?a=6&id=[+id+]" title="'.$deleteTitle.'"><i class="fa fa-trash-o"></i> '.$deleteLabel.'</a></td>
           ';
 }
-//Show/Hide thumbnails
+//doclister thumbs tv
+$findtvimage = array('[+','+]');
+$replacetvimage = array('[+tv.','+]');
+$DocListerTvImage = str_replace($findtvimage,$replacetvimage,$imageTV);
+
+//doclister thumbs tv for tvlist param
+$findtvimagelist = array('[+','+]');
+$replacetvimagelist = array('tv.','');
+$DocListerTvImageInList = str_replace($findtvimagelist,$replacetvimagelist,$imageTV);
+
+//DocListerTvFields
+$find = array('[+','+]');
+$replace = array('tv.','');
+$DocListerTvs = str_replace($find,$replace,$tablefields);
+$DocListerTvFields = ''.$DocListerTvImageInList.','.$DocListerTvs.'';
+
+
+//Show/Hide Images
+
+if ($ListSnippet == DocLister) {
+$ImagePath = $DocListerTvImage;
+}
+else {$ImagePath = $imageTV;}
+
 if ($EnableImage == yes) {
      $tdThumbnail = '
-         <td><img class="img-responsive img-thumbnail" src="../'.$imageTV.'" height="80" width="140" alt="[+title+]"></td>
+         <td><img class="img-responsive img-thumbnail" src="../'.$ImagePath.'" height="80" width="140" alt="[+title+]"></td>
           ';
 $ThumbnailHeading = '
           <th class="sorting_asc_disabled">'.$ThumbnailTitle.'</th>
@@ -117,8 +175,11 @@ $ThumbnailHeading = '
   <td class="bg-success" width="5%">'.$EditLink.'  '.$editLabel.'</a></td>
   '.$DeleteButton.'</tr>
             ';
-
+if ($ListSnippet == DocLister) {
+$params['tvList'] = $DocListerTvFields;
+}
 // Ditto Snippet parameters
+$params['debug'] = '0';
 $params['parents'] = $parentId;
 $params['depth'] = $dittolevel;
 $params['sortBy'] = 'createdon';
@@ -180,7 +241,7 @@ $(document).ready(function(){
 </head>
 <body>
 <style>
-     body {background: #eeeeee; font-size:12px;}
+     body {font-size:12px; background: #eeeeee; }
      .sortable {background: #ffffff; margin-top:15px;}
      .main-wrapper {margin-top:15px; background: #ffffff; padding:15px; border:1px solid #dedede; border-radius:8px;}
      input {border-radius: 3px;
@@ -200,7 +261,7 @@ $(document).ready(function(){
   select{
    width: 150px;
    padding: 5px;
-   font-size: 16px;
+   font-size: 15px;
    line-height: 1;
    border:1px solid #dedede;
    border-radius: 2px;
@@ -210,13 +271,18 @@ background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffff
 }
 thead {background: #ffffff;
 background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);}
-
+.navbar-module{border:1px solid #dedede; background: #ffffff;
+background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);}
+.navbar-module li {3px 0px 3px 3px;}
+.navbar-module li a {  font-size: 14px; border-right:1px solid #ffffff!important;}
+.navbar-module li a:hover {background:#ededed;}
      </style>
-<div class="container-fluid">
+<div class="container-fluid modulebody">
   <div class="tabbable">
     <div class="main-wrapper">
       <div class="container-fluid">
-        <h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.'  '.$NewResource.' </h3>
+	   '.$Navbar.'
+        <h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.'  '.$ImagePath.'</h3>
       </div>
       <hr>
     <div class="widget-stage overflowscroll">
@@ -248,7 +314,6 @@ $(function () {
 </script>
 </body>
 </html>
-
 ';           
      //end Module Layout
 
