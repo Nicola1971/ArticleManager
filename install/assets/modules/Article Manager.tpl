@@ -282,7 +282,7 @@ background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffff
     <div class="main-wrapper">
       <div class="container-fluid">
 	   '.$Navbar.'
-        <h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.'  '.$ImagePath.'</h3>
+        <h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.' </h3>
       </div>
       <hr>
     <div class="widget-stage overflowscroll">
