@@ -12,6 +12,16 @@ http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 
 ##Updates
 
+### Beta 2.4
+
+* New Navbar with
+* 
+** Refresh module
+** Create resources 
+** Create Links 
+** Manage images 
+** Manage files
+
 ### Beta 2.3
 * Added Create Resource button
 
