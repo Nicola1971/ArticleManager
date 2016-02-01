@@ -1,17 +1,17 @@
 /**
  * Article Manager
  *
- * Article Manager Beta 2.4.6 - Manage Blog Posts and more
+ * Article Manager Beta 2.4.7 - Manage Blog Posts and more
  *
  * @category	module
- * @version     Beta 2.4.6
+ * @version     Beta 2.4.7
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal	@modx_category Manager
  * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+],[+documentTags+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date,Tags &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &showPublishedOnly= Show Published Only:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New + &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 /******
-Article Manager beta 2.4.6
+Article Manager beta 2.4.7
 
 &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+],[+documentTags+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date,Tags &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &showPublishedOnly= Show Published Only:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New + &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
 
@@ -170,21 +170,7 @@ $ThumbnailHeading = '
   <td class="bg-success" width="5%">'.$EditLink.'  '.$editLabel.'</a></td>
   '.$DeleteButton.'</tr>
             ';
-//DocLister
-if ($ListSnippet == DocLister) {
-$params['tvPrefix'] = '';
-}
 
-if ($ListSnippet == DocLister) {
-$params['tvList'] = $DocListerTvFields;
-
-if ($showPublishedOnly == yes) {
-$params['showNoPublish'] = '0';
-}
-if ($showPublishedOnly == no) {
-$params['showNoPublish'] = '1';
-}
-}
 // Ditto Snippet parameters
 $params['debug'] = '0';
 $params['parents'] = $parentId;
@@ -202,14 +188,23 @@ $params['hideFolders'] = '1';
 if ($hideFolders == no) {
 $params['hideFolders'] = '0';
 }
-if ($showPublishedOnly == yes) {
-$params['showPublishedOnly'] = '1';
-}
-if ($showPublishedOnly == no) {
-$params['showPublishedOnly'] = '0';
+//DocLister parameters
+if ($ListSnippet == DocLister) {
+$params['tvPrefix'] = '';
 }
 
-// run Ditto Snippet
+if ($ListSnippet == DocLister) {
+$params['tvList'] = $DocListerTvFields;
+
+if ($showPublishedOnly == yes) {
+$params['showNoPublish'] = '0';
+}
+if ($showPublishedOnly == no) {
+$params['showNoPublish'] = '1';
+}
+}
+
+// run Ditto/List/DocLister Snippet
 $Articlelist = $modx->runSnippet(''.$ListSnippet.'', $params);
 
 
