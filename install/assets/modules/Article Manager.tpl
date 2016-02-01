@@ -1,17 +1,17 @@
 /**
  * Article Manager
  *
- * Article Manager Beta 2.4.2 - Manage Blog Posts and more
+ * Article Manager Beta 2.4.3 - Manage Blog Posts and more
  *
  * @category	module
- * @version     Beta 2.4.2
+ * @version     Beta 2.4.3
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal	@modx_category Manager
  * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New + &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 /******
-Article Manager beta 2.4.2
+Article Manager beta 2.4.3
 
 &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New + &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
 
@@ -132,29 +132,24 @@ $DeleteButton = '
           <td class="bg-danger" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$deleteTitle.' [+title+]" class="btn btn-sm btn-danger" href="index.php?a=6&id=[+id+]" title="'.$deleteTitle.'"><i class="fa fa-trash-o"></i> '.$deleteLabel.'</a></td>
           ';
 }
-//doclister thumbs tv
-$findtvimage = array('[+','+]');
-$replacetvimage = array('[+tv.','+]');
-$DocListerTvImage = str_replace($findtvimage,$replacetvimage,$imageTV);
+
 
 //doclister thumbs tv for tvlist param
 $findtvimagelist = array('[+','+]');
-$replacetvimagelist = array('tv.','');
+$replacetvimagelist = array('','');
 $DocListerTvImageInList = str_replace($findtvimagelist,$replacetvimagelist,$imageTV);
 
 //DocListerTvFields
 $find = array('[+','+]');
-$replace = array('tv.','');
+$replace = array('','');
 $DocListerTvs = str_replace($find,$replace,$tablefields);
 $DocListerTvFields = ''.$DocListerTvImageInList.','.$DocListerTvs.'';
 
 
+
 //Show/Hide Images
 
-if ($ListSnippet == DocLister) {
-$ImagePath = $DocListerTvImage;
-}
-else {$ImagePath = $imageTV;}
+$ImagePath = $imageTV;
 
 if ($EnableImage == yes) {
      $tdThumbnail = '
@@ -175,6 +170,11 @@ $ThumbnailHeading = '
   <td class="bg-success" width="5%">'.$EditLink.'  '.$editLabel.'</a></td>
   '.$DeleteButton.'</tr>
             ';
+//DocLister
+if ($ListSnippet == DocLister) {
+$params['tvPrefix'] = '';
+}
+
 if ($ListSnippet == DocLister) {
 $params['tvList'] = $DocListerTvFields;
 }
@@ -195,6 +195,7 @@ $params['hideFolders'] = '1';
 if ($hideFolders == no) {
 $params['hideFolders'] = '0';
 }
+
 // run Ditto Snippet
 $Articlelist = $modx->runSnippet(''.$ListSnippet.'', $params);
 
