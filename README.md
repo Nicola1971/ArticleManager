@@ -12,6 +12,11 @@ http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 
 ##Updates
 
+### Beta 2.4.7
+* support for unpublished resource
+https://github.com/Nicola1971/ArticleManager/issues/3
+* various fixes
+
 ### Beta 2.4.3
 
 * added tvprefix parameter for Doclister (Thanks to AgelxNash)
