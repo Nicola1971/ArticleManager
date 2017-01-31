@@ -3,7 +3,7 @@ Posts Admin Module For MODX Evo
 
 http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 
-![article manager modx](https://github.com/Nicola1971/ArticleManager/blob/dev/screen.jpg)
+![article manager modx](https://github.com/Nicola1971/ArticleManager/blob/dev/screen.png)
 
 ##To do
 * Thumbnails (phpthumb?) for image tvs
@@ -11,6 +11,30 @@ http://www.tattoocms.it/extras/modx-modules/article-manager-module.html
 
 
 ##Updates
+
+### Beta 2.4.8
+* restyle
+* added config button
+
+### Beta 2.4.7
+* support for unpublished resource
+https://github.com/Nicola1971/ArticleManager/issues/3
+* various fixes
+
+### Beta 2.4.3
+
+* added tvprefix parameter for Doclister (Thanks to AgelxNash)
+https://github.com/Nicola1971/ArticleManager/issues/2
+
+### Beta 2.4
+
+* New Navbar with
+* 
+** Refresh module
+** Create resources 
+** Create Links 
+** Manage images 
+** Manage files
 
 ### Beta 2.3
 * Added Create Resource button

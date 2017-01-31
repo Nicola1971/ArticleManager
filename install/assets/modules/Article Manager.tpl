@@ -1,25 +1,40 @@
 /**
  * Article Manager
  *
- * Article Manager Beta 2.4.1 - Manage Blog Posts and more
+<<<<<<< HEAD
+ * Article Manager Beta 2.4.8 - Manage Blog Posts and more
  *
  * @category	module
- * @version     Beta 2.4.1
+ * @version     Beta 2.4.8
+=======
+ * Article Manager Beta 2.4.7 - Manage Blog Posts and more
+ *
+ * @category	module
+ * @version     Beta 2.4.7
+>>>>>>> origin/master
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  * @internal	@modx_category Manager
- * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
+ * @internal    @properties &ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+],[+documentTags+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date,Tags &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &showPublishedOnly= Show Published Only:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New + &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
 /******
-Article Manager beta 2.4.1
+<<<<<<< HEAD
+Article Manager beta 2.4.8
+=======
+Article Manager beta 2.4.7
+>>>>>>> origin/master
 
-&ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
+&ListSnippet= List Snippet:;list;Ditto,List,DocLister;Ditto &ArticleModuleTitle=Main Page Module Title:;string;Article Manager &ArticleModuleIcon=AwesomeFont icon:;string;fa-pencil &tablefields= Tv Fields:;string;[+pagetitle+],[+longtitle+],[+description+],[+date+],[+documentTags+] &tableheading=TV  heading:;string;Page Title,Long Title,Description,Date,Tags &ParentFolder=Parent folder:;string;0 &ListItems=Max items in List:;string;all &hideFolders= Hide Folders:;list;yes,no;yes &showPublishedOnly= Show Published Only:;list;yes,no;yes &dittolevel= Depht:;string;3 &ListBoxFilter= Enable filter:;list;yes,no;no &dittofilter= Filter:;string; &EnablePopup= Popup Editing:;list;no,yes;yes &editTitle=Editing Title:;string;Edit &EnablePreview= Preview Button:;list;no,yes;yes &previewTitle=Preview Title:;string;View &EnableNewResource= New Resource Button:;list;no,yes;yes &NewResourceTitle=New Resource Title:;string;Add New + &CreateResourceHereTitle=Create Resource  Title:;string;Create Resource &EnableCreateLinks= Create Links Button:;list;no,yes;yes &CreateLinkHereTitle=Create Link Title:;string;Create Link &EnableDelete= Delete Button:;list;no,yes;yes &deleteTitle=Delete Title:;string;Delete &ShowButtonsLabel= Show Buttons Label:;list;no,yes;yes &EnableImage= Show Image:;list;no,yes;no &imageTV=Image TV:;string;[+Thumbnail+] &ThumbnailTitle=Image Title:;string;Image &ImageGalleryTitle=Image Gallery Title:;string;Images &FilesGalleryTitle=File Gallery Title:;string;Files
 
 ****
 */
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
-global $manager_theme;
-
+global $_lang, $manager_theme;
+$module_id = (!empty($_REQUEST["id"])) ? (int)$_REQUEST["id"] : $yourModuleId;
+//config button
+if($modx->hasPermission('edit_module')) {
+$button_config = '<a title="' . $_lang["settings_config"] . '" href="index.php?a=108&id='.$module_id.'" class="btn btn-sm btn-default" ><i class="fa fa-cog"></i></a>';
+}
 /*basic params*/
 $parentId = $ParentFolder;
 $dittototal = $ListItems;
@@ -33,9 +48,9 @@ foreach ($parentarr as $parentval){
 $parenttitle = $modx->getDocument($parentval);
 $parentname = $parenttitle['pagetitle'];
 $parentbtns .=  " 
-<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=4&pid=" . $parentval . "' title='".$CreateResourceHereTitle."'><i class='fa fa-file-text-o'></i> " .$NewResourceTitle. " + " .$parentname." </a></li>";
+<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=4&pid=" . $parentval . "' title='".$CreateResourceHereTitle."'><i class='fa fa-file-text-o'></i> " .$NewResourceTitle. " " .$parentname." </a></li>";
 $parentlinkbtns .=  " 
-<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=72&pid=" . $parentval . "' title='".$CreateLinkHereTitle."'><i class='fa fa-link'></i> " .$NewResourceTitle. " + " .$parentname." </a></li>";
+<li><a title='".$CreateResourceHereTitle." " .$parentname."' href='index.php?a=72&pid=" . $parentval . "' title='".$CreateLinkHereTitle."'><i class='fa fa-link'></i> " .$NewResourceTitle. " " .$parentname." </a></li>";
 
 }
 
@@ -86,7 +101,7 @@ $CreateLinksNav = '
 if ($EnableNewResource == yes) {
 $CreateResourceNav = '<li class="dropdown" data-toggle="dropdown">
 	 <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-folder-open"></i> '.$CreateResourceHereTitle.' <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle primary" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-folder-open"></i> '.$CreateResourceHereTitle.' <span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
 '.$parentbtns.'
     </ul>
@@ -110,6 +125,7 @@ $Navbar = '
 '.$CreateLinksNav.'
 	<li><a href="media/browser/mcpuk/browse.php?&type=images"><i class="fa fa-picture-o"></i> ' .$ImageGalleryTitle. ' </a></li>
 	<li><a href="media/browser/mcpuk/browse.php?&type=files"><i class="fa fa-file-pdf-o"></i> ' .$FilesGalleryTitle. '</a><li>
+	'.$button_config.'
 	 </ul>
 	 </div>
 	 </nav>
@@ -132,29 +148,24 @@ $DeleteButton = '
           <td class="bg-danger" width="5%"><a data-toggle="tooltip" data-placement="bottom" title="'.$deleteTitle.' [+title+]" class="btn btn-sm btn-danger" href="index.php?a=6&id=[+id+]" title="'.$deleteTitle.'"><i class="fa fa-trash-o"></i> '.$deleteLabel.'</a></td>
           ';
 }
-//doclister thumbs tv
-$findtvimage = array('[+','+]');
-$replacetvimage = array('[+tv.','+]');
-$DocListerTvImage = str_replace($findtvimage,$replacetvimage,$imageTV);
+
 
 //doclister thumbs tv for tvlist param
 $findtvimagelist = array('[+','+]');
-$replacetvimagelist = array('tv.','');
+$replacetvimagelist = array('','');
 $DocListerTvImageInList = str_replace($findtvimagelist,$replacetvimagelist,$imageTV);
 
 //DocListerTvFields
 $find = array('[+','+]');
-$replace = array('tv.','');
+$replace = array('','');
 $DocListerTvs = str_replace($find,$replace,$tablefields);
 $DocListerTvFields = ''.$DocListerTvImageInList.','.$DocListerTvs.'';
 
 
+
 //Show/Hide Images
 
-if ($ListSnippet == DocLister) {
-$ImagePath = $DocListerTvImage;
-}
-else {$ImagePath = $imageTV;}
+$ImagePath = $imageTV;
 
 if ($EnableImage == yes) {
      $tdThumbnail = '
@@ -175,9 +186,7 @@ $ThumbnailHeading = '
   <td class="bg-success" width="5%">'.$EditLink.'  '.$editLabel.'</a></td>
   '.$DeleteButton.'</tr>
             ';
-if ($ListSnippet == DocLister) {
-$params['tvList'] = $DocListerTvFields;
-}
+
 // Ditto Snippet parameters
 $params['debug'] = '0';
 $params['parents'] = $parentId;
@@ -195,7 +204,23 @@ $params['hideFolders'] = '1';
 if ($hideFolders == no) {
 $params['hideFolders'] = '0';
 }
-// run Ditto Snippet
+//DocLister parameters
+if ($ListSnippet == DocLister) {
+$params['tvPrefix'] = '';
+}
+
+if ($ListSnippet == DocLister) {
+$params['tvList'] = $DocListerTvFields;
+
+if ($showPublishedOnly == yes) {
+$params['showNoPublish'] = '0';
+}
+if ($showPublishedOnly == no) {
+$params['showNoPublish'] = '1';
+}
+}
+
+// run Ditto/List/DocLister Snippet
 $Articlelist = $modx->runSnippet(''.$ListSnippet.'', $params);
 
 
@@ -217,14 +242,18 @@ $Module = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/
 <script>
 $(document).ready(function(){
     $(".sortable").DataTable({
-     dom: \'T<"clear">plfrtip\',
+    dom:
+"<\'row\'<\'col-sm-12\'T>>" +
+"<\'row\'<\'col-sm-6\'fl><\'col-sm-6\'pr>>" +
+"<\'row\'<\'col-sm-12\'tr>>" +
+"<\'row\'<\'col-sm-5\'i><\'col-sm-7\'p>>",
         tableTools: {
                         "sSwfPath": "../assets/modules/ArticleManager/js/TableTools/swf/copy_csv_xls_pdf.swf",
             "aButtons": [
   
                 {
                     "sExtends": "csv",
-                         "sTitle": "'.$ArticleModuleTitle.'-cvs-export",
+                         "sTitle": "'.$ArticleModuleTitle.'-csv-export",
                     "sButtonText": "CSV"
                 },
       
@@ -240,49 +269,12 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<style>
-     body {font-size:12px; background: #eeeeee; }
-     .sortable {background: #ffffff; margin-top:15px;}
-     .main-wrapper {margin-top:15px; background: #ffffff; padding:15px; border:1px solid #dedede; border-radius:8px;}
-     input {border-radius: 3px;
-     -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-  outline: none;
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid #DDDDDD;
-  }
-     input:focus   {box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid rgba(81, 203, 238, 1);}
-  select{
-   width: 150px;
-   padding: 5px;
-   font-size: 15px;
-   line-height: 1;
-   border:1px solid #dedede;
-   border-radius: 2px;
-   height: 34px;  
-   background: #ffffff;
-background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);
-}
-thead {background: #ffffff;
-background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);}
-.navbar-module{border:1px solid #dedede; background: #ffffff;
-background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);}
-.navbar-module li {3px 0px 3px 3px;}
-.navbar-module li a {  font-size: 14px; border-right:1px solid #ffffff!important;}
-.navbar-module li a:hover {background:#ededed;}
-     </style>
 <div class="container-fluid modulebody">
   <div class="tabbable">
     <div class="main-wrapper">
       <div class="container-fluid">
 	   '.$Navbar.'
-        <h3 class="text-success"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.' </h3>
+        <h3 class="moduletitle"><i class="fa '.$ArticleModuleIcon.'"></i> '.$ArticleModuleTitle.' </h3>
       </div>
       <hr>
     <div class="widget-stage overflowscroll">
